@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <?php
+    session_start();
+    session_destroy();
+    setcookie("user_id", "", time() - 3600, "/"); // Delete cookie
+    header("Location: login.php");
+    exit();
+    ?>
+    <h1>Welcome, <?php echo $_SESSION['user_id']; ?>!</h1>
+    <p>This is your home page. Here is your data:</p>
+    <div id="user-data">
+        <!-- User data will be populated here -->
+    </div>
+</body>
+</html>
